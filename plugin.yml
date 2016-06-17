@@ -1,0 +1,7 @@
+name: OasisEssentials
+main: oasis.OasisEssentials
+version: 1.0
+description: Overhaul of the Oasis Extras plugin
+author: Paxination
+load: STARTUP
+depend: [WorldEdit, WorldGuard, Multiverse-Core]
