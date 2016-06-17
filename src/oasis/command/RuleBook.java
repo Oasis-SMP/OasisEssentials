@@ -28,7 +28,7 @@ public class RuleBook implements CommandExecutor {
                 if (sender instanceof Player) 
                 {
                     Player player = (Player) sender;
-                    if(player.hasPermission("rulebook.players") || player.hasPermission("rulebook.staff"))
+                    if(player.hasPermission("oasis.rulebook.players") || player.hasPermission("oasis.rulebook.staff"))
                     {
                         plugin.givebook(player,1);
                         return true;
@@ -42,7 +42,7 @@ public class RuleBook implements CommandExecutor {
             }
             else if (args.length == 1) 
             {
-                if (sender.hasPermission("rulebook.staff")) 
+                if (sender.hasPermission("oasis.rulebook.staff")) 
                 {
                 	if (args[0].equalsIgnoreCase("replace"))
                 	{
@@ -108,7 +108,7 @@ public class RuleBook implements CommandExecutor {
             }
             else if (args.length > 1) 
             {
-                if (sender.hasPermission("rulebook.staff")) 
+                if (sender.hasPermission("oasis.rulebook.staff")) 
                 {
                     if (args[0].equalsIgnoreCase("give"))
                     {

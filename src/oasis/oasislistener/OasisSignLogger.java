@@ -58,7 +58,7 @@ public class OasisSignLogger implements Listener {
 		String playa = event.getPlayer().getName();
 		Player player = event.getPlayer();
 
-		if(player.hasPermission("oasissignlogger.bypass") || plugin.doNOTlog.contains(player.getUniqueId())){
+		if(player.hasPermission("oasis.signlogger.bypass") || plugin.doNOTlog.contains(player.getUniqueId())){
 			return;
 		}
 
@@ -87,7 +87,7 @@ public class OasisSignLogger implements Listener {
 
 		for(Player p:Bukkit.getOnlinePlayers()){
 			if(!player.equals(p)){
-				if(p.hasPermission("oasissignlogger.notify")){
+				if(p.hasPermission("oasis.signlogger.notify")){
 					if (!plugin.doNOTnotify.contains(p.getUniqueId())) {
 						p.sendMessage(line);
 					}

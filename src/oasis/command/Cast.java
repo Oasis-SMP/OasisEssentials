@@ -23,15 +23,29 @@ public class Cast implements CommandExecutor {
 		int count=0;
 		if(args.length==1){
 			if(args[0].equalsIgnoreCase("list")){
-				for(String key:plugin.getConfig().getKeys(false)){
-					count++;
-					sender.sendMessage(ChatColor.translateAlternateColorCodes('~',"~6[~1" + count + "~6] - ~2" + key + "~r: ~a" + plugin.getConfig().getString(key + ".Name") + " ~a" + plugin.getConfig().getString(key + ".Text")));
+				if (sender.hasPermission("oasis.cast.list")) {
+					for (String key : plugin.getConfig().getKeys(false)) {
+						count++;
+						sender.sendMessage(ChatColor
+								.translateAlternateColorCodes(
+										'~',
+										"~6[~1"
+												+ count
+												+ "~6] - ~2"
+												+ key
+												+ "~r: ~a"
+												+ plugin.getConfig().getString(
+														key + ".Name")
+												+ " ~a"
+												+ plugin.getConfig().getString(
+														key + ".Text")));
+					}
+					return true;
 				}
-				return true;
 			}
 			
 			if(args[0].equalsIgnoreCase("reload")){
-				if (sender.hasPermission("oasiscast.staff.reload")) {
+				if (sender.hasPermission("oasis.cast.reload")) {
 					plugin.reloadConfig();
 					sender.sendMessage(ChatColor.GREEN + "Plugin reloaded!");
 					return true;
@@ -49,7 +63,7 @@ public class Cast implements CommandExecutor {
 			
 		} else if(args.length>1){
 			if(args[0].equalsIgnoreCase("delete")){
-				if (sender.hasPermission("oasiscast.staff.delete")) {
+				if (sender.hasPermission("oasis.cast.delete")) {
 					for (String key : plugin.getConfig().getKeys(false)) {
 						if (key.equals(args[1])) {
 							plugin.getConfig().set(key, null);
@@ -66,7 +80,7 @@ public class Cast implements CommandExecutor {
 			}
 			
 			if(args[0].equalsIgnoreCase("add")){
-				if (sender.hasPermission("oasiscast.staff.add")) {
+				if (sender.hasPermission("oasis.cast.add")) {
 					if (args.length == 4) {
 						if(args[1].equalsIgnoreCase("cast")){
 							sender.sendMessage(ChatColor.RED + "Damnit Cody, stop trying to brea mah shit maaaaan!");

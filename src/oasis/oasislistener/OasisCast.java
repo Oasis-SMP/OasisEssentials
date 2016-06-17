@@ -52,7 +52,7 @@ public class OasisCast implements Listener {
 					}
 
 					if (event.getPlayer().hasPermission(
-							"oasiscast.staff." + key)) {
+							"oasis.cast.cmd." + key)) {
 						plugin.getServer().broadcastMessage(
 								ChatColor.translateAlternateColorCodes('&',
 										name + " " + msg));

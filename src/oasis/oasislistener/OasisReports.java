@@ -17,7 +17,7 @@ public class OasisReports implements Listener {
 	
 	@EventHandler
 	public void onStaffJoin(final PlayerJoinEvent event){
-		if(event.getPlayer().hasPermission("oasisreports.staff")){
+		if(event.getPlayer().hasPermission("oasis.reports.staff")){
 			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
 				@Override
 				public void run(){

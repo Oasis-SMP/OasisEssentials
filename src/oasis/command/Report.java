@@ -32,10 +32,10 @@ public class Report implements CommandExecutor {
 				return true;
 			}
 		}
-		if (((Player) sender).hasPermission("oasisplugin.reports.staff")) {
+		if (((Player) sender).hasPermission("oasis.reports.staff")) {
 			if (args.length == 1) {
 				if (args[0].equalsIgnoreCase("list")) {
-					if (sender.hasPermission("oasisplugin.reports.list")) {
+					if (sender.hasPermission("oasis.reports.list")) {
 						if(plugin.reports.isEmpty()){
 							SendMsg(((Player) sender), "~cNo plugin.reports to check!");
 							return true;
@@ -50,7 +50,7 @@ public class Report implements CommandExecutor {
 				}
 
 				if (args[0].equalsIgnoreCase("clearall")) {
-					if (sender.hasPermission("oasisplugin.reports.clearall")) {
+					if (sender.hasPermission("oasis.reports.clearall")) {
 						for(String count: plugin.reports){
 							plugin.getConfig().set(count, null);
 						}
@@ -63,7 +63,7 @@ public class Report implements CommandExecutor {
 			}
 			if (args.length == 2) {
 				if (args[0].equalsIgnoreCase("clear")) {
-					if (sender.hasPermission("oasisplugin.reports.clear")) {
+					if (sender.hasPermission("oasis.reports.clear")) {
 						if (plugin.getConfig().getKeys(false) != null) {
 							try {
 								Integer.parseInt(args[1]);
@@ -141,7 +141,7 @@ public class Report implements CommandExecutor {
 		plugin.reports.clear();
 		plugin.reports.addAll(plugin.getConfig().getKeys(false));
 		player.sendMessage(ChatColor.BLUE + "Report sent!  Staff will be notified when they join!");
-		plugin.getServer().broadcast(ChatColor.BLUE + "A new report was just submited!", "oasisplugin.reports.staff");
+		plugin.getServer().broadcast(ChatColor.BLUE + "A new report was just submited!", "oasis.reports.staff");
 	}
 	
 	public static void SendMsg(Player player, String msg){
